@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.joolzminer</groupId>
+		<artifactId>01-adt-and-algorithms</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+    <artifactId>001-algorithms</artifactId>
+
+    <packaging>jar</packaging>
+
+    <name>|-- 001-algorithms</name>
+	<description>	
+		Keywords:
+            + Bubblesort, Bubble sort
+            + Binary Search
+
+		This project includes very simple examples involving Annotations.
+			
+		BubbleSortDemo:
+		  Demonstrates how to implement the bubblesort algorithm for sorting a List of
+		  a generic type T that implements Comparable.
+			
+		BinarySearchDemo:
+		  An imperative implementation of the Binary Search for a sorted List of
+		  a generic type T.    
+	</description>
+</project>
+
