@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author sergio.f.gonzalez
  *
  */
-public class IntSequentialListTest {
+public class ArrayBackedIntLinkedListTest {
 	
 	// List creation
 	
@@ -25,7 +25,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testCreate() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		assertThat(intList, is(notNullValue()));
 		assertThat(intList.getLength(), is(equalTo(0)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -41,7 +41,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testCreateWithSize() {
-		IntList intList = new IntSequentialList(100);
+		IntList intList = new ArrayBackedIntLinkedList(100);
 		assertThat(intList, is(notNullValue()));
 		assertThat(intList.getLength(), is(equalTo(0)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -56,7 +56,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCreateWithSizeZero() {
-		new IntSequentialList(0);
+		new ArrayBackedIntLinkedList(0);
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testCreateWithNegativeSize() {
-		new IntSequentialList(-1);	
+		new ArrayBackedIntLinkedList(-1);	
 	}
 	
 	
@@ -79,7 +79,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testIsEmptyWithEmptyList() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		
 		assertThat(intList.isEmpty(), is(equalTo(true)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -90,7 +90,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testIsEmptyWithNonEmptyList() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		
 		assertThat(intList.isEmpty(), is(equalTo(false)));
@@ -102,7 +102,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testIsEmptyWithNonEmptyListWithSeveralElements() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -122,7 +122,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddFirstElemToEmptyList() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		
 		intList.add(1_000, 0);
 		assertThat(intList.getLength(), is(equalTo(1)));
@@ -137,7 +137,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testAddElemToEmptyListInInvalidPos() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		
 		intList.add(1_000, 1);
 	}
@@ -150,7 +150,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testAddElemToEmptyListInInvalidPosNegative() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		
 		intList.add(1_000, -1);
 	}
@@ -166,7 +166,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInIntermediatePosNoInflating() {
-		IntList intList = new IntSequentialList();		
+		IntList intList = new ArrayBackedIntLinkedList();		
 		intList.add(1_000, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -187,7 +187,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInFirstPosNoInflating() {
-		IntList intList = new IntSequentialList();		
+		IntList intList = new ArrayBackedIntLinkedList();		
 		intList.add(1_001, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -208,7 +208,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInLastPosNoInflating() {
-		IntList intList = new IntSequentialList();		
+		IntList intList = new ArrayBackedIntLinkedList();		
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		int prevLen = intList.getLength();
@@ -231,7 +231,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInFirstPosInflating() {
-		IntList intList = new IntSequentialList(2);		
+		IntList intList = new ArrayBackedIntLinkedList(2);		
 		intList.add(1_001, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -248,7 +248,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInIntermediatePosWithInflating() {
-		IntList intList = new IntSequentialList(2);		
+		IntList intList = new ArrayBackedIntLinkedList(2);		
 		intList.add(1_000, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -267,7 +267,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInLastPosWithInflating() {
-		IntList intList = new IntSequentialList(2);		
+		IntList intList = new ArrayBackedIntLinkedList(2);		
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		int prevLen = intList.getLength();
@@ -284,7 +284,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromEmptyList() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.remove(0);
 	}
 	
@@ -293,7 +293,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromNonEmptyListInvalidPos() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -305,7 +305,7 @@ public class IntSequentialListTest {
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromNonEmptyListInvalidPosNegative() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -317,7 +317,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithOneElemFirstElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		
 		intList.remove(0);
@@ -332,7 +332,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsFirstElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -347,7 +347,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsFirstElem1() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -363,7 +363,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsIntermediateElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -379,7 +379,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsLastElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -396,7 +396,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testGetLengthOfEmptyList() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		
 		assertThat(intList.getLength(), is(equalTo(0)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -407,7 +407,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testGetLengthOfListWithOneElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		
 		assertThat(intList.getLength(), is(equalTo(1)));
@@ -419,7 +419,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testGetLengthOfListWithSeveralElem() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -435,7 +435,7 @@ public class IntSequentialListTest {
 	 */
 	@Test
 	public void testTraverseCase1() {
-		IntList intList = new IntSequentialList();
+		IntList intList = new ArrayBackedIntLinkedList();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
