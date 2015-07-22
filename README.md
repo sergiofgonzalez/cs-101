@@ -1,8 +1,5 @@
 # CS 101 Repository
 
-Examples from CS 101
+This repository contains examples and exercises from CS 101 notes, but written in Java.
 
-
-## Chapters
-* 01: ADT and Algorithms
-* 02: Sequential Lists: Lists, Stacks and Queues backed by Arrays
+See the [Chapters Summary](cs-101-exercises/README.md) for details.

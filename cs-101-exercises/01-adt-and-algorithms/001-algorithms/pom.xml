@@ -18,7 +18,7 @@
             + Bubblesort, Bubble sort
             + Binary Search
 
-		This project includes very simple examples involving Annotations.
+		This project includes very simple examples illustrating the implementation of algorithms.
 			
 		BubbleSortDemo:
 		  Demonstrates how to implement the bubblesort algorithm for sorting a List of
