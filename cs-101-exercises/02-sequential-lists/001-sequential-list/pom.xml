@@ -66,13 +66,6 @@
                 + paying by cash or credit card takes several seconds to process
             
             Each 60 seconds a report with stats is printed on screen.
-            
-            
-         SupermarketQueueOopRunner:
-            ToDo - convert the simulation in a OOP program.
-            It must support several queues and a strategy for selecting queues.
-                  
-
 	</description>
 </project>
 

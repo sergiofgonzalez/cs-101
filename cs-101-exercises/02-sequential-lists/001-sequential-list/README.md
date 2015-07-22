@@ -1,0 +1,56 @@
+# CS 101 Repository
+
+## Chapters
+* 01: [ADT and Algorithms](../../01-adt-and-algorithms/README.md)
+* 02: [Sequential Lists: Lists, Stacks and Queues backed by Arrays](../../02-sequential-lists/README.md)
+
+### Projects
+* [001-sequential-list](README.md): This project includes very simple examples involving Array backed implementations of Lists, Stacks and Queues and simple applications of those structures.
+
+#### Programs
+
+**Keywords:**
++ Lists, Stacks, Queues
++ Array Backed Implementation
++ Circular Queue
+
+Note that you **cannot create generic arrays on runtime**. Thus, the examples are only implemented for ints.
+
+##### IntSequentialList
+Implementation of Sequential Lists based on an array of ints. The List is automatically expanded if needed.
+			
+##### IntArrayBackedStack
+Implementation of Stack backed by an array. The stack is automatically expanded if needed.
+
+##### IntArrayBackedQueue
+Implementation of a Queue backed by an array. The implementation sees the array as a circular structure and includes a marker element (pointed by the head element) to distinguish empty and full queues. The Queue is also expanded as needed.
+
+##### PrintEnteredNumbers
+Takes numbers taken from the standard input and prints them in the same order as received using a List to store them.
+
+##### BinNumberRunner
+Prints a number in binary using a stack as a support structure.
+
+The algorithm is as follows:
+```
+    10 in binary = 1010
+    10 / 2 = 5, remainder = 0;
+    5 / 2 = 2, remainder = 1;
+    2 / 2 = 1; remainder = 0;
+    1 / 2 = 0; remainder = 1;
+```
+            
+Thus, you divide a given number until result = 0, and the remainders give you the number in binary representation.
+
+##### PostfixCalculatorRunner
+A simple postfix calculator that uses as stack as support structure.
+
+##### SupermarketQueueFunctionalRunner:
+A simulation program for a queue in a Supermarket.
+
+The simulation assumes:
++ a random number of customers go to the queue every minute
++ each product takes several seconds to process
++ paying by cash or credit card takes several seconds to process
+            
+Each 60 seconds a report with stats is printed on screen.

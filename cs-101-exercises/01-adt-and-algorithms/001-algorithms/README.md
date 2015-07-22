@@ -5,13 +5,14 @@
 * 02: [Sequential Lists: Lists, Stacks and Queues backed by Arrays](../../02-sequential-lists/README.md)
 
 ### Projects
-* [001-algorithms](README.md): Very simple examples that illustrate the implementation of algorithms.
+* [001-algorithms](README.md): Very simple examples that illustrate the implementation of some algorithms.
 
 #### Programs
 
-Keywords:
+**Keywords:**
 + Bubblesort, Bubble sort
 + Binary Search
+
 
 ##### BubbleSortDemo
 Demonstrates how to implement the bubblesort algorithm for sorting a List of a generic type T that implements Comparable.
