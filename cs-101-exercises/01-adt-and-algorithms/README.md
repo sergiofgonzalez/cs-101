@@ -1,7 +1,8 @@
 # CS 101 Repository
 
 ## Chapters
-* 01: [ADT and Algorithms](01-adt-and-algorithms/README.md)
+* 01: [ADT and Algorithms](cs-101/cs-101-exercises/01-adt-and-algorithms/README.md)
+* 02: [Sequential Lists: Lists, Stacks and Queues backed by Arrays](cs-101/cs-101-exercises/02-sequential-lists/README.md)
 
 ### Projects
-* [001-algorithms](001-algorithms/README.md): Very simple examples that illustrate the implementation of algorithms.
+* [001-algorithms](cs-101/cs-101-exercises/01-adt-and-algorithms/001-algorithms/README.md): Very simple examples that illustrate the implementation of algorithms.
