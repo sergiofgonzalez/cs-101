@@ -7,17 +7,17 @@ import org.junit.Test;
 
 
 /**
- * Verifies SequentialList implementation of List
+ * Verifies DoubleLinkedList implementation of List
  * 
  * @author sergio.f.gonzalez
  *
  */
-public class IntArrayBackedLinkedListTest {
-	
+public class DoubleLinkedListTest {
+		
 	// List creation
 	
 	/**
-	 * Create IntList
+	 * Create List<Integer>
 	 * 
 	 * pre: none
 	 * post: an empty list is created
@@ -25,52 +25,12 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testCreate() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		assertThat(intList, is(notNullValue()));
 		assertThat(intList.getLength(), is(equalTo(0)));
 		assertThat(intList.toString(), is(equalTo("[]")));
 	}
-	
-
-	/**
-	 * Create IntList with initialSize
-	 * 
-	 * pre: none
-	 * post: an empty list is created
-	 * 
-	 */
-	@Test
-	public void testCreateWithSize() {
-		IntList intList = new IntArrayBackedLinkedList(100);
-		assertThat(intList, is(notNullValue()));
-		assertThat(intList.getLength(), is(equalTo(0)));
-		assertThat(intList.toString(), is(equalTo("[]")));
-	}
-	
-	/**
-	 * Create IntList with size 0
-	 * 
-	 * pre: none
-	 * post: an exception is thrown
-	 * 
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testCreateWithSizeZero() {
-		new IntArrayBackedLinkedList(0);
-	}
-	
-	/**
-	 * Create IntList with negative size
-	 * 
-	 * pre: none
-	 * post: an exception is thrown
-	 * 
-	 */
-	@Test(expected=IllegalArgumentException.class)
-	public void testCreateWithNegativeSize() {
-		new IntArrayBackedLinkedList(-1);	
-	}
-	
+		
 	
 	// Checking if List is empty
 	
@@ -79,7 +39,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testIsEmptyWithEmptyList() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		
 		assertThat(intList.isEmpty(), is(equalTo(true)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -90,7 +50,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testIsEmptyWithNonEmptyList() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		
 		assertThat(intList.isEmpty(), is(equalTo(false)));
@@ -102,7 +62,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testIsEmptyWithNonEmptyListWithSeveralElements() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -115,14 +75,14 @@ public class IntArrayBackedLinkedListTest {
 	// Adding Elements to a List
 	
 	/**
-	 * Add first elem to empty IntList
+	 * Add first elem to empty List<Integer>
 	 * 
 	 *  pre: list is created and empty
 	 *  post: lenght of the list is 1
 	 */
 	@Test
 	public void testAddFirstElemToEmptyList() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		
 		intList.add(1_000, 0);
 		assertThat(intList.getLength(), is(equalTo(1)));
@@ -130,33 +90,33 @@ public class IntArrayBackedLinkedListTest {
 	}
 	
 	/**
-	 * Add elem to empty IntList in invalid position
+	 * Add elem to empty List<Integer> in invalid position
 	 * 
 	 *  pre: list is created and empty
 	 *  post: n/a an exception is thrown
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testAddElemToEmptyListInInvalidPos() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		
 		intList.add(1_000, 1);
 	}
 	
 	/**
-	 * Add elem to empty IntList in invalid position (negative)
+	 * Add elem to empty List<Integer> in invalid position (negative)
 	 * 
 	 *  pre: list is created and empty
 	 *  post: n/a an exception is thrown
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testAddElemToEmptyListInInvalidPosNegative() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		
 		intList.add(1_000, -1);
 	}
 	
 	/**
-	 * Add elem to a non empty IntList in intermediate position w/o inflating
+	 * Add elem to a non empty List<Integer> in intermediate position w/o inflating
 	 * 
 	 *  pre: list is created and empty, list has available space
 	 *  post: 	element is inserted in given position
@@ -166,7 +126,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInIntermediatePosNoInflating() {
-		IntList intList = new IntArrayBackedLinkedList();		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_000, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -177,7 +137,7 @@ public class IntArrayBackedLinkedListTest {
 	}
 	
 	/**
-	 * Add elem to a non empty IntList in first position w/o inflating
+	 * Add elem to a non empty List<Integer> in first position w/o inflating
 	 * 
 	 *  pre: list is created and empty, list has available space
 	 *  post: 	element is inserted in given position
@@ -187,7 +147,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInFirstPosNoInflating() {
-		IntList intList = new IntArrayBackedLinkedList();		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_001, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -198,7 +158,7 @@ public class IntArrayBackedLinkedListTest {
 	}
 	
 	/**
-	 * Add elem to a non empty IntList in last position w/o inflating
+	 * Add elem to a non empty List<Integer> in last position w/o inflating
 	 * 
 	 *  pre: list is created and empty, list has available space
 	 *  post: 	element is inserted in given position
@@ -208,7 +168,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInLastPosNoInflating() {
-		IntList intList = new IntArrayBackedLinkedList();		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		int prevLen = intList.getLength();
@@ -221,7 +181,7 @@ public class IntArrayBackedLinkedListTest {
 	// Forcing inflating on the list because avail space has exhausted
 
 	/**
-	 * Add elem to a non empty IntList in first position w inflating
+	 * Add elem to a non empty List<Integer> in first position w inflating
 	 * 
 	 *  pre: list is created and empty, list has available space
 	 *  post: 	element is inserted in given position
@@ -231,7 +191,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInFirstPosInflating() {
-		IntList intList = new IntArrayBackedLinkedList(2);		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_001, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -243,12 +203,12 @@ public class IntArrayBackedLinkedListTest {
 	
 	
 	/**
-	 * Add elem to a non empty IntList in intermediate position w/o inflating
+	 * Add elem to a non empty List<Integer> in intermediate position w/o inflating
 	 * 
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInIntermediatePosWithInflating() {
-		IntList intList = new IntArrayBackedLinkedList(2);		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_000, 0);
 		intList.add(1_002, 1);
 		int prevLen = intList.getLength();
@@ -262,12 +222,12 @@ public class IntArrayBackedLinkedListTest {
 
 	
 	/**
-	 * Add elem to a non empty IntList in last position with inflating
+	 * Add elem to a non empty List<Integer> in last position with inflating
 	 * 
 	 */
 	@Test
 	public void testAddElemToNonEmptyListInLastPosWithInflating() {
-		IntList intList = new IntArrayBackedLinkedList(2);		
+		List<Integer> intList = new DoubleLinkedList<>();		
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		int prevLen = intList.getLength();
@@ -277,24 +237,23 @@ public class IntArrayBackedLinkedListTest {
 		assertThat(intList.toString(), is(equalTo("[1000, 1001, 1002]")));
 	}		
 	
-	
 	// Remove
 	
 	/**
-	 * Try to remove elements from an empty IntList
+	 * Try to remove elements from an empty List<Integer>
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromEmptyList() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.remove(0);
 	}
 	
 	/**
-	 * Try to remove elements from a non empty IntList in Invalid position
+	 * Try to remove elements from a non empty List<Integer> in Invalid position
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromNonEmptyListInvalidPos() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -302,11 +261,11 @@ public class IntArrayBackedLinkedListTest {
 	}
 	
 	/**
-	 * Try to remove elements from a non empty IntList in Invalid position (neg)
+	 * Try to remove elements from a non empty List<Integer> in Invalid position (neg)
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testRemoveElemFromNonEmptyListInvalidPosNegative() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -318,7 +277,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithOneElemFirstElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		
 		intList.remove(0);
@@ -333,7 +292,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsFirstElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -348,7 +307,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsFirstElem1() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -364,7 +323,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsIntermediateElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -380,7 +339,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testRemoveElemFromListWithSeveralElemsLastElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -397,7 +356,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testGetLengthOfEmptyList() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		
 		assertThat(intList.getLength(), is(equalTo(0)));
 		assertThat(intList.toString(), is(equalTo("[]")));
@@ -408,7 +367,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testGetLengthOfListWithOneElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		
 		assertThat(intList.getLength(), is(equalTo(1)));
@@ -420,7 +379,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testGetLengthOfListWithSeveralElem() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		
@@ -436,7 +395,7 @@ public class IntArrayBackedLinkedListTest {
 	 */
 	@Test
 	public void testTraverseCase1() {
-		IntList intList = new IntArrayBackedLinkedList();
+		List<Integer> intList = new DoubleLinkedList<>();
 		intList.add(1_000, 0);
 		intList.add(1_001, 1);
 		intList.add(1_002, 2);
@@ -449,23 +408,4 @@ public class IntArrayBackedLinkedListTest {
 		assertThat(intList.toString(), is(equalTo("[1000, 1001, 1002]")));
 		assertThat(sb.toString(), is(equalTo("100010011002")));
 	}
-	
-	// -- bug fixes
-	/**
-	 * Add element in the last position (bug found while running copyList)
-	 */
-	@Test
-	public void testAddElemInFirstThenInLastPosition() {
-		IntList intList = new IntArrayBackedLinkedList(5);
-		intList.add(1_000, 0);
-		System.out.println(((IntArrayBackedLinkedList)intList).toString(true));
-		
-		intList.add(999, 0);
-		System.out.println(((IntArrayBackedLinkedList)intList).toString(true));
-		
-		intList.add(1_001, intList.getLength());
-
-		assertThat(intList.getLength(), is(equalTo(3)));
-		assertThat(intList.toString(), is(equalTo("[999, 1000, 1001]")));
-	}	
 }

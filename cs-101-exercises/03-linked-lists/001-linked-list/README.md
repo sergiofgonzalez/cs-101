@@ -3,54 +3,41 @@
 ## Chapters
 * 01: [ADT and Algorithms](../../01-adt-and-algorithms/README.md)
 * 02: [Sequential Lists: Lists, Stacks and Queues backed by Arrays](../../02-sequential-lists/README.md)
+* 03: [Linked Lists](../../03-linked-lists/README.md)
 
 ### Projects
-* [001-linked-list](README.md): `ToDo`
+* [001-linked-list](README.md): Very simple example implementations of Lists, Stacks and Queues using linked approach.
 
 #### Programs
 
 **Keywords:**
 + Lists, Stacks, Queues
-+ Array Backed Implementation
-+ Circular Queue
++ Linked lists
 
-Note that you **cannot create generic arrays on runtime**. Thus, the examples are only implemented for ints.
 
-##### IntSequentialList
-Implementation of Sequential Lists based on an array of ints. The List is automatically expanded if needed.
+##### IntArrayBackedLinkedList
+Implementation of a Linked List backed by an array.
 			
-##### IntArrayBackedStack
-Implementation of Stack backed by an array. The stack is automatically expanded if needed.
+##### DynamicLinkedList
+A linked list implementation backed by dynamic memory.
 
-##### IntArrayBackedQueue
-Implementation of a Queue backed by an array. The implementation sees the array as a circular structure and includes a marker element (pointed by the head element) to distinguish empty and full queues. The Queue is also expanded as needed.
+##### CircularDynamicLinkedList
+A variation of linked list that is circular: the last node points to the first one.
 
-##### PrintEnteredNumbers
-Takes numbers taken from the standard input and prints them in the same order as received using a List to store them.
+##### DoubleLinkedList
+A variation of linked list in which the node contains pointers to the next and prev elements.
 
-##### BinNumberRunner
-Prints a number in binary using a stack as a support structure.
+##### SortedDynamicLinkedList
+A variation of linked list in which the elements are placed in the established order.
 
-The algorithm is as follows:
-```
-    10 in binary = 1010
-    10 / 2 = 5, remainder = 0;
-    5 / 2 = 2, remainder = 1;
-    2 / 2 = 1; remainder = 0;
-    1 / 2 = 0; remainder = 1;
-```
-            
-Thus, you divide a given number until result = 0, and the remainders give you the number in binary representation.
+##### ListCopy
+A program that copies a list into another one.
 
-##### PostfixCalculatorRunner
-A simple postfix calculator that uses as stack as support structure.
+##### DynamicLinkedQueue
+Implementation of a Queue using the linked list as the underlying structure.
 
-##### SupermarketQueueFunctionalRunner:
-A simulation program for a queue in a Supermarket.
+##### CircularDynamicLinkedQueue
+Implementation of a Circular Queue using the linked list as the underlying structure.
 
-The simulation assumes:
-+ a random number of customers go to the queue every minute
-+ each product takes several seconds to process
-+ paying by cash or credit card takes several seconds to process
-            
-Each 60 seconds a report with stats is printed on screen.
+##### DynamicLinkedStack
+Implementation of a Stack using the linked list as the underlying structure.

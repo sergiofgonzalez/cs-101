@@ -2,8 +2,6 @@ package org.joolzminer.examples.adt.lists;
 
 import java.util.Arrays;
 import java.util.function.IntConsumer;
-
-import org.joolzminer.examples.adt.domain.IntArrayBackedNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +67,7 @@ public class IntArrayBackedLinkedList implements IntList {
 			storage[p].setInfo(element);
 			int q = list;
 			for (int i = 0; i < position - 1; i++) {
-				q = storage[i].getNext();
+				q = storage[q].getNext();
 			}
 			storage[p].setNext(storage[q].getNext());
 			storage[q].setNext(p);
@@ -197,5 +195,36 @@ public class IntArrayBackedLinkedList implements IntList {
 		sb.deleteCharAt(sb.length() - 1);
 		
 		return sb.toString();		
+	}
+	
+	private static class IntArrayBackedNode {
+		private int info;
+		private int next;
+		
+		public IntArrayBackedNode(final int info, final int next) {
+			this.info = info;
+			this.next = next;
+		}
+
+		public int getNext() {
+			return next;
+		}
+
+		public void setNext(int next) {
+			this.next = next;
+		}
+
+		public int getInfo() {
+			return info;
+		}
+
+		public void setInfo(int info) {
+			this.info = info;
+		}
+
+		@Override
+		public String toString() {
+			return "[info=" + info + ", next=" + next + "]";
+		}	
 	}
 }

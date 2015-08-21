@@ -45,7 +45,7 @@ Thus, you divide a given number until result = 0, and the remainders give you th
 ##### PostfixCalculatorRunner
 A simple postfix calculator that uses as stack as support structure.
 
-##### SupermarketQueueFunctionalRunner:
+##### SupermarketQueueFunctionalRunner
 A simulation program for a queue in a Supermarket.
 
 The simulation assumes:
