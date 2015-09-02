@@ -7,4 +7,4 @@
 * 04: [Recursion](04-recursion/README.md)
 
 ### Projects
-* [001-linked-list](001-linked-list/README.md): This project includes very simple example linked implementations of Lists, Stacks and Queues.
+* [001-recursion](001-recursion/README.md): This project includes examples of recursion.
